@@ -1,9 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
-import HomePage from "../components/HomePage";
+import EditBook from "../components/EditBook";
 import styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
 
-export default function Home() {
+export default function addbook() {
+  const router = useRouter();
+  const query = router.query;
+  const object = JSON.parse(query.object);
   return (
     <div className={styles.container}>
       <Head>
@@ -12,7 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomePage />
+      <EditBook book={object} />
     </div>
   );
 }
